@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:id="@+id/project_tableRow_OnClick"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+
+        <TextView
+            android:layout_column="0"
+            android:layout_weight="3"
+            android:height="30dp"
+            android:id="@+id/project_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:layout_column="1"
+            android:layout_weight="2"
+            android:height="30dp"
+            android:id="@+id/project_cotation_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8"
+            android:textSize="25dp"
+            android:textAlignment="center"/>
+    </TableRow>
+</TableLayout>

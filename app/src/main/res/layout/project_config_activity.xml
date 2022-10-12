@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/background">
+        <TextView
+            android:id="@+id/projet_name_in_configuration"
+            android:layout_column="0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/project_name"
+            android:textAlignment="gravity"
+            android:textSize="34sp"
+            />
+
+        <Button
+            android:id="@+id/projet_name_modify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="1"
+            android:text="@string/modify_button_text"
+            android:paddingRight="10dp"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+    android:layout_height="200dp"
+        >
+        <ScrollView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_span="2">
+
+                <TextView
+                    android:id="@+id/description_project_textfield"
+                    android:text="@string/description_text_default"
+
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                </TextView>
+        </ScrollView>
+    </TableRow>
+
+
+    <TableRow
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/step_text_label"
+            android:layout_column="0"
+            android:layout_width="298dp"
+            android:layout_height="45dp"
+            android:text="@string/Step_Menu"
+            android:textAlignment="gravity"
+            android:textSize="34sp"
+            android:paddingRight="10dp"
+            />
+
+        <Button
+            android:id="@+id/add_step_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="1"
+            android:text="@string/add_button_text" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="2">
+        <LinearLayout
+            android:id="@+id/AddStepLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="3"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+        </ScrollView>
+    </TableRow>
+    <TableRow
+        android:background="@color/background"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:layout_column="0"
+            android:text="@string/Total_Title"
+            android:textSize="25dp">
+        </TextView>
+        <TextView
+            android:id="@+id/average_textView"
+            android:layout_column="1"
+            android:text="/20"
+            android:textSize="25dp"
+            android:paddingRight="15dp"
+            android:textAlignment="textEnd">
+        </TextView>
+    </TableRow>
+</TableLayout>

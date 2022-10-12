@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entrer le nom du Projet :"
+        android:layout_gravity="start"
+        android:textAlignment="textStart"
+        />
+
+    <EditText
+        android:id="@+id/add_student_list"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:gravity="start"
+        android:hint="liste des étudiant"></EditText>
+
+
+</LinearLayout>

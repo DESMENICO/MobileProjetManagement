@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MobileProjetManagement</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_name">Nom du Projet</string>
+    <string name="Step_Menu">Etapes</string>
+    <string name="Total_Title">Total :</string>
+    <string name="add_button_text">Ajouter</string>
+    <string name="modify_button_text">Modifier</string>
+    <string name="description_text_default">Description...</string>
+</resources>
