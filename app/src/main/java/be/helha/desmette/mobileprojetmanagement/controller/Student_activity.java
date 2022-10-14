@@ -23,16 +23,14 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
 
     Button addStudent;
     LinearLayout mContainer;
-    StudentList studentList = new StudentList();
+    StudentList studentList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Student student = new Student("Evan");
-        student.addProject(new Project("Java","Trop fun"));
-        studentList.addStudent(student);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        studentList = new StudentList(getApplicationContext());
+        studentList.getStudents();
         mContainer = findViewById(R.id.container_scrollview);
         addStudent = findViewById(R.id.add_object_button);
         addStudent.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +45,7 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
 
     void updateUI(){
         mContainer.removeAllViews();
-        for (Student student : studentList.getStudentList()) {
+        for (Student student : studentList.getStudents()) {
             addFragmentOnUpdate(student);
         }
     }
@@ -71,6 +69,7 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
     public void onClick(Student student) {
         Intent intent = new Intent(getApplicationContext(),Project_activity.class);
         intent.putExtra(Project_activity.STUDENTID,(Serializable) student);
+        intent.putExtra(Project_activity.STUDENTLIST,(Serializable) studentList);
         startActivityForResult(intent, STUDENTDATA);
     }
 

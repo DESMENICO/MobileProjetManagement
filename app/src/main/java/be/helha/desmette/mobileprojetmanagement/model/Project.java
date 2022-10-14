@@ -10,12 +10,21 @@ public class Project implements Serializable {
     private UUID id;
     private String mName;
     private String mDescription;
+    private UUID mOwnerID;
     private ArrayList<StepProject> stepProjectList = new ArrayList<StepProject>();
+
+
+    public void setOwnerID(UUID ownerID) {
+        this.mOwnerID = ownerID;
+    }
 
     public Project(String Name, String Description) {
         id = UUID.randomUUID();
         this.mName = Name;
         this.mDescription = Description;
+    }
+    public Project(UUID id){
+        this.id = id;
     }
 
     public Project(){

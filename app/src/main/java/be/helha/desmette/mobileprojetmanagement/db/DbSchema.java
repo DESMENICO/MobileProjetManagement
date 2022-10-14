@@ -1,13 +1,14 @@
 package be.helha.desmette.mobileprojetmanagement.db;
 
-public abstract class DbSchema {
+import java.io.Serializable;
+
+public abstract class DbSchema implements Serializable {
 
     public static final class StudentTable{
         public static final String NAME = "student";
         public static final class cols {
             public static final String UUID = "uuid";
             public static final String FirstName = "firstName";
-            public static final String ProjectList = "projectList";
         }
     }
 
@@ -15,9 +16,9 @@ public abstract class DbSchema {
         public static final String NAME = "project";
         public static final class cols {
             public static final String Name = "name";
-            public static final String description = "firstName";
+            public static final String Description = "firstName";
             public static final String UUID = "uuid";
-            public static final String Owner = "owner";
+            public static final String OwnerID = "ownerId";
         }
     }
 
@@ -25,8 +26,8 @@ public abstract class DbSchema {
         public static final String NAME = "step";
         public static final class cols {
             public static final String Name = "name";
-            public static final String cotation = "cotation";
-            public static final String Owner = "project";
+            public static final String Cotation = "cotation";
+            public static final String ProjectID = "projectId";
         }
     }
 

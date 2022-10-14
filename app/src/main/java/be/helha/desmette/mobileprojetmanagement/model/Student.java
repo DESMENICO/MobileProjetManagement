@@ -12,6 +12,7 @@ public class Student implements Serializable { private static Student sStudent;
 
     public Student(UUID mId) {
         this.mId = mId;
+        mProjectList = new ArrayList<>();
     }
 
     public void setFirstName(String mFirstName) {

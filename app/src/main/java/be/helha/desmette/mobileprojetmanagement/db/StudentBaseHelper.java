@@ -3,13 +3,16 @@ package be.helha.desmette.mobileprojetmanagement.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.io.Serializable;
+
 import be.helha.desmette.mobileprojetmanagement.db.DbSchema.StudentTable;
 import be.helha.desmette.mobileprojetmanagement.db.DbSchema.ProjectTable;
 import be.helha.desmette.mobileprojetmanagement.db.DbSchema.StepTable;
 
-public class StudentBaseHelper extends SQLiteOpenHelper {
+public class StudentBaseHelper extends SQLiteOpenHelper implements Serializable {
     private static final int VERSION = 1;
-    private static final String DATABASE_NAME = "StudentTable.db";
+    private static final String DATABASE_NAME = "Mobileprojectmanagement.db";
 
     public StudentBaseHelper(Context context){
         super(context, DATABASE_NAME,null, VERSION);
@@ -17,21 +20,23 @@ public class StudentBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+ StudentTable.NAME + "("
-                + "_id integer PRIMARY KEY AUTOINCREMENT, "
-                + StudentTable.cols.FirstName + ", " + StudentTable.cols.UUID + ", "
-                + StudentTable.cols.ProjectList + ")"
+                + StudentTable.cols.UUID + " PRIMARY KEY NOT NULL,"
+                + StudentTable.cols.FirstName + ")"
         );
 
         db.execSQL("CREATE TABLE "+ ProjectTable.NAME + "("
-                + "_id integer PRIMARY KEY AUTOINCREMENT, "
-                + ProjectTable.cols.Name + ", " + ProjectTable.cols.UUID + ", "
-                + ProjectTable.cols.description + "," + ProjectTable.cols.Owner + ")"
+                + ProjectTable.cols.UUID + " PRIMARY KEY NOT NULL,"
+                + ProjectTable.cols.Name + ","
+                + ProjectTable.cols.Description +","
+                + ProjectTable.cols.OwnerID
+                +" , FOREIGN KEY (" + ProjectTable.cols.OwnerID + ") REFERENCES " + StudentTable.NAME +" ( " + StudentTable.cols.UUID + "))"
         );
 
         db.execSQL("CREATE TABLE "+ StepTable.NAME + "("
                 + "_id integer PRIMARY KEY AUTOINCREMENT, "
-                + StepTable.cols.Name + ", " + StepTable.cols.cotation + ", "
-                + StepTable.cols.Owner + ")"
+                + StepTable.cols.Name + ", " + StepTable.cols.Cotation + ", "
+                + StepTable.cols.ProjectID
+                +" , FOREIGN KEY (" + StepTable.cols.ProjectID + ") REFERENCES " + ProjectTable.NAME +" ( " + ProjectTable.cols.UUID + "))"
         );
 
 

@@ -18,15 +18,18 @@ import be.helha.desmette.mobileprojetmanagement.R;
 import be.helha.desmette.mobileprojetmanagement.model.Project;
 import be.helha.desmette.mobileprojetmanagement.model.StepProject;
 import be.helha.desmette.mobileprojetmanagement.model.Student;
+import be.helha.desmette.mobileprojetmanagement.model.StudentList;
 
 public class Project_activity extends AppCompatActivity implements Serializable ,ProjectFragment.Listener{
     public static final int PROJECTDATA = 69;
     public static final String STUDENTID = "StudentID";
     public static final String StudentDATA = "StudentDATA";
+    public static final String STUDENTLIST = "StudentLIST";
 
     Button addProject;
     LinearLayout mContainer;
     Student student;
+    StudentList studentList;
 
 
     @Override
@@ -36,6 +39,7 @@ public class Project_activity extends AppCompatActivity implements Serializable 
         addProject = findViewById(R.id.add_object_button);
         mContainer = findViewById(R.id.container_scrollview);
         student = (Student) getIntent().getSerializableExtra(STUDENTID);
+        studentList = (StudentList) getIntent().getSerializableExtra(STUDENTLIST);
         addProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +60,7 @@ public class Project_activity extends AppCompatActivity implements Serializable 
 
     private void updateUI() {
         mContainer.removeAllViews();
-        for (Project x: student.getProjectList()) {
+        for (Project x: studentList.getProjects(student.getId())) {
             addFragmentOnUpdate(x);
         }
     }
