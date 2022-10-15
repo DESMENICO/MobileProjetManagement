@@ -9,8 +9,7 @@
         android:id="@+id/cotation_text"
         android:layout_width="312dp"
         android:layout_height="58dp"
-        android:text="TextView"
-        android:textSize="35dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

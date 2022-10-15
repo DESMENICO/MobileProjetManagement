@@ -29,8 +29,7 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        studentList = new StudentList(getApplicationContext());
-        studentList.getStudents();
+        studentList = StudentList.get(getApplicationContext());
         mContainer = findViewById(R.id.container_scrollview);
         addStudent = findViewById(R.id.add_object_button);
         addStudent.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +68,7 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
     public void onClick(Student student) {
         Intent intent = new Intent(getApplicationContext(),Project_activity.class);
         intent.putExtra(Project_activity.STUDENTID,(Serializable) student);
-        intent.putExtra(Project_activity.STUDENTLIST,(Serializable) studentList);
+      //intent.putExtra(Project_activity.STUDENTLIST,(Serializable) studentList);
         startActivityForResult(intent, STUDENTDATA);
     }
 
@@ -79,15 +78,6 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
         updateUI();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode==Project_config_activity.RESULT_OK){
-            Student studentToReplace = (Student) data.getSerializableExtra(Project_activity.StudentDATA);
-            studentList.removeStudentByID(studentToReplace.getId());
-            studentList.addStudent(studentToReplace);
-            Log.d("Test","ojndpiuzpeciuzeciuzebpcug");
-        }
-    }
 
     @Override
     public void getListStudentAdd(String string) {

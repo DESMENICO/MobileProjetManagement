@@ -12,7 +12,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entrer le nom de la cotation:"
+        android:text="@string/dialog_step_cotation_title"
         android:paddingTop="15dp"
         android:textSize="25dp"
         android:layout_gravity="center"/>
@@ -22,7 +22,7 @@
         android:id="@+id/step_name_editText"
         android:layout_width="309dp"
         android:layout_height="62dp"
-        android:hint="nom de la cotation"
+        android:hint="@string/dialog_step_cotation_name"
         android:layout_gravity="center"
         android:paddingTop="15dp"
         android:textAlignment="center"

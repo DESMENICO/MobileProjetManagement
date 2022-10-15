@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:text="@string/project_name"
             android:textAlignment="gravity"
-            android:textSize="34sp"
+            android:textSize="30dp"
             />
 
         <Button
@@ -42,7 +42,7 @@
                 <TextView
                     android:id="@+id/description_project_textfield"
                     android:text="@string/description_text_default"
-
+                    android:textSize="20dp"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent">
 
@@ -63,7 +63,7 @@
             android:layout_height="45dp"
             android:text="@string/Step_Menu"
             android:textAlignment="gravity"
-            android:textSize="34sp"
+            android:textSize="30dp"
             android:paddingRight="10dp"
             />
 

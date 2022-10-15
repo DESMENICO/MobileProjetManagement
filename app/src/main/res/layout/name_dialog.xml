@@ -10,7 +10,7 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrer le nom du Projet :"
+        android:text="@string/dialog_name_project_name_title"
         android:layout_gravity="center"
         android:textAlignment="center"
         />
@@ -19,13 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="nom du projet"></EditText>
+        android:hint="@string/dialog_name_project_name"></EditText>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrer la description du Projet :"
+        android:text="@string/dialog_name_project_description_title"
         android:gravity="center"
         android:textAlignment="center"/>
 
@@ -33,6 +33,8 @@
         android:id="@+id/project_description_editText"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:hint="description du projet"></EditText>
+        android:textAlignment="textStart"
+        android:layout_gravity="start"
+        android:hint="@string/dialog_name_project_description"></EditText>
 
 </LinearLayout>

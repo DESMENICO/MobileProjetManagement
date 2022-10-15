@@ -12,7 +12,7 @@ import be.helha.desmette.mobileprojetmanagement.db.DbSchema.StepTable;
 
 public class StudentBaseHelper extends SQLiteOpenHelper implements Serializable {
     private static final int VERSION = 1;
-    private static final String DATABASE_NAME = "Mobileprojectmanagement.db";
+    private static final String DATABASE_NAME = "database.db";
 
     public StudentBaseHelper(Context context){
         super(context, DATABASE_NAME,null, VERSION);
@@ -28,6 +28,7 @@ public class StudentBaseHelper extends SQLiteOpenHelper implements Serializable 
                 + ProjectTable.cols.UUID + " PRIMARY KEY NOT NULL,"
                 + ProjectTable.cols.Name + ","
                 + ProjectTable.cols.Description +","
+                + ProjectTable.cols.Average +","
                 + ProjectTable.cols.OwnerID
                 +" , FOREIGN KEY (" + ProjectTable.cols.OwnerID + ") REFERENCES " + StudentTable.NAME +" ( " + StudentTable.cols.UUID + "))"
         );
@@ -35,6 +36,7 @@ public class StudentBaseHelper extends SQLiteOpenHelper implements Serializable 
         db.execSQL("CREATE TABLE "+ StepTable.NAME + "("
                 + "_id integer PRIMARY KEY AUTOINCREMENT, "
                 + StepTable.cols.Name + ", " + StepTable.cols.Cotation + ", "
+                + StepTable.cols.UUID + ","
                 + StepTable.cols.ProjectID
                 +" , FOREIGN KEY (" + StepTable.cols.ProjectID + ") REFERENCES " + ProjectTable.NAME +" ( " + ProjectTable.cols.UUID + "))"
         );

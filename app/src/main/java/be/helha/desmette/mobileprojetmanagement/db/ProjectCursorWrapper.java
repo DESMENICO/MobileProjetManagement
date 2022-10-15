@@ -15,9 +15,11 @@ public class ProjectCursorWrapper extends CursorWrapper implements Serializable 
         String uuidString = getString(getColumnIndex(DbSchema.ProjectTable.cols.UUID));
         String name = getString(getColumnIndex(DbSchema.ProjectTable.cols.Name));
         String description = getString(getColumnIndex(DbSchema.ProjectTable.cols.Description));
+        int average = Integer.parseInt(getString(getColumnIndex(DbSchema.ProjectTable.cols.Average)));
         String ownerId = getString(getColumnIndex(DbSchema.ProjectTable.cols.OwnerID));
         Project project = new Project(UUID.fromString(uuidString));
         project.setmName(name);
+        project.setAverage(average);
         project.setmDescription(description);
         project.setOwnerID(UUID.fromString(ownerId));
         return project;

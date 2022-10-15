@@ -7,5 +7,15 @@
     <string name="Total_Title">Total :</string>
     <string name="add_button_text">Ajouter</string>
     <string name="modify_button_text">Modifier</string>
-    <string name="description_text_default">Description...</string>
+    <string name="description_text_default">Description</string>
+    <string name="add_student_name">Entrer le nom du Projet :</string>
+    <string name="add_student_list_name">liste des étudiant</string>
+    <string name="dialog_name_project_name_title">Entrer le nom du Projet :</string>
+    <string name="dialog_name_project_name">nom du projet</string>
+    <string name="dialog_name_project_description_title">Entrer la description du Projet :</string>
+    <string name="dialog_name_project_description">description du projet</string>
+    <string name="fragment_project_name">Nom</string>
+    <string name="dialog_step_cotation_title">Entrer le nom de la cotation:</string>
+    <string name="dialog_step_cotation_name">nom de la cotation</string>
+    <string name="fragment_student_name">Nom de l\'étudiant</string>
 </resources>

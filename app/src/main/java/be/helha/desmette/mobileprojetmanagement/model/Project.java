@@ -8,11 +8,22 @@ import be.helha.desmette.mobileprojetmanagement.R;
 
 public class Project implements Serializable {
     private UUID id;
-    private String mName;
-    private String mDescription;
+    private String mName = null;
+    private String mDescription = null;
+    private int mAverage;
     private UUID mOwnerID;
     private ArrayList<StepProject> stepProjectList = new ArrayList<StepProject>();
 
+    public UUID getOwnerID() {
+        return mOwnerID;
+    }
+
+    public void setAverage(int mAverage) {
+        this.mAverage = mAverage;
+    }
+    public int getAverage(){
+        return this.mAverage;
+    }
 
     public void setOwnerID(UUID ownerID) {
         this.mOwnerID = ownerID;
@@ -29,8 +40,6 @@ public class Project implements Serializable {
 
     public Project(){
         id=UUID.randomUUID();
-        this.mName = String.valueOf(R.string.app_name);
-        this.mDescription = String.valueOf(R.string.description_text_default);
     }
 
     public ArrayList<StepProject> getStepProjectList() {
@@ -84,4 +93,14 @@ public class Project implements Serializable {
         stepProjectList.add(stepProject);
     }
 
+    public void updateStep(StepProject step) {
+        StepProject stepToRemove = null;
+        for (StepProject stepProject: stepProjectList) {
+            if(stepProject.getId().equals(step.getId())){
+                    stepToRemove = stepProject;
+            }
+        }
+        stepProjectList.remove(stepToRemove);
+        stepProjectList.add(step);
+    }
 }

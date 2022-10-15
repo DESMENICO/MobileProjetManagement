@@ -24,7 +24,7 @@ public class Project_activity extends AppCompatActivity implements Serializable 
     public static final int PROJECTDATA = 69;
     public static final String STUDENTID = "StudentID";
     public static final String StudentDATA = "StudentDATA";
-    public static final String STUDENTLIST = "StudentLIST";
+
 
     Button addProject;
     LinearLayout mContainer;
@@ -36,17 +36,18 @@ public class Project_activity extends AppCompatActivity implements Serializable 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        studentList = StudentList.get(getApplicationContext());
+        studentList.getStudents();
         addProject = findViewById(R.id.add_object_button);
         mContainer = findViewById(R.id.container_scrollview);
         student = (Student) getIntent().getSerializableExtra(STUDENTID);
-        studentList = (StudentList) getIntent().getSerializableExtra(STUDENTLIST);
+        //studentList = (StudentList) getIntent().getSerializableExtra(STUDENTLIST);
         addProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Project project = new Project();
-                student.addProject(project);
+                studentList.addProject(project,student);
                 onClickOnFragment(project);
-                updateUI();
             }
         });
         updateUI();
@@ -60,26 +61,9 @@ public class Project_activity extends AppCompatActivity implements Serializable 
 
     private void updateUI() {
         mContainer.removeAllViews();
-        for (Project x: studentList.getProjects(student.getId())) {
+        for (Project x: studentList.getProjectOfStudent(student.getId())) {
             addFragmentOnUpdate(x);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent data = new Intent();
-        data.putExtra(StudentDATA, student);
-        this.setResult(RESULT_OK, data);
-        finish();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode==Project_config_activity.RESULT_OK){
-            Project projectToReplace= (Project) data.getSerializableExtra(Project_config_activity.ProjectDATA);
-            student.removeProjectByID(projectToReplace.getId());
-            student.addProject(projectToReplace);
-            }
     }
 
     private void addFragmentOnUpdate(Project project){
@@ -96,7 +80,7 @@ public class Project_activity extends AppCompatActivity implements Serializable 
     public void onClickOnFragment(Project project) {
         Intent intent = new Intent(getApplicationContext(),Project_config_activity.class);
         intent.putExtra(Project_config_activity.ProjetID,project.getId());
-        intent.putExtra(Project_config_activity.StudentID,(Serializable) student);
+        //intent.putExtra(Project_config_activity.StudentID,(Serializable) student);
         startActivityForResult(intent, PROJECTDATA);
     }
 }

@@ -58,7 +58,8 @@ public class CotationFragment extends Fragment implements Serializable {
         mCotationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                mInterface.setCotation(mStepName.getText().toString(),Integer.parseInt(mCotationSpinner.getSelectedItem().toString()));
+                stepProject.setCotation(Integer.parseInt(mCotationSpinner.getSelectedItem().toString()));
+                mInterface.setCotation(stepProject);
             }
 
             @Override
@@ -76,6 +77,6 @@ public class CotationFragment extends Fragment implements Serializable {
     }
 
     interface Interface{
-        void setCotation(String stepName, int cotation);
+        void setCotation(StepProject step);
     }
 }

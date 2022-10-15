@@ -16,8 +16,9 @@ public abstract class DbSchema implements Serializable {
         public static final String NAME = "project";
         public static final class cols {
             public static final String Name = "name";
-            public static final String Description = "firstName";
+            public static final String Description = "description";
             public static final String UUID = "uuid";
+            public static final String Average = "average";
             public static final String OwnerID = "ownerId";
         }
     }
@@ -27,6 +28,7 @@ public abstract class DbSchema implements Serializable {
         public static final class cols {
             public static final String Name = "name";
             public static final String Cotation = "cotation";
+            public static final String UUID = "uuid";
             public static final String ProjectID = "projectId";
         }
     }
