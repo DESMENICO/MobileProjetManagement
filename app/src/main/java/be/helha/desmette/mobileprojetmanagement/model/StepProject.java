@@ -9,15 +9,6 @@ public class StepProject implements Serializable {
     private UUID mProjectId;
     private UUID mId;
 
-
-    public void setProjectId(UUID mProjectId) {
-        this.mProjectId = mProjectId;
-    }
-
-    public UUID getProjectId() {
-        return mProjectId;
-    }
-
     public StepProject(String mStepName) {
         this.mStepName = mStepName;
         mId = UUID.randomUUID();
@@ -26,6 +17,13 @@ public class StepProject implements Serializable {
     public StepProject(UUID id){
         this.mId = id;
     }
+
+
+    public void setProjectId(UUID mProjectId) {
+        this.mProjectId = mProjectId;
+    }
+
+
 
     public UUID getId() {
         return mId;
@@ -39,7 +37,7 @@ public class StepProject implements Serializable {
         this.mStepName = mStepName;
     }
 
-    public int getmCotation() {
+    public int getCotation() {
         return mCotation;
     }
 

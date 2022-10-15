@@ -10,21 +10,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
-
 import be.helha.desmette.mobileprojetmanagement.R;
 import be.helha.desmette.mobileprojetmanagement.model.Student;
 
-public class StudentFragment extends Fragment {
+public class Student_fragment extends Fragment {
     TextView mStudentName;
     LinearLayout mContainer;
-    Student student;
-    Listener listener;
+    Student mStudent;
+    Listener mListener;
 
-    public void setListener(Listener listener) {
-        this.listener = listener;
+    public void setListener(Listener mListener) {
+        this.mListener = mListener;
     }
 
 
@@ -37,15 +33,15 @@ public class StudentFragment extends Fragment {
         mContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onClick(student);
+                mListener.onClick(mStudent);
             }
         });
-        mStudentName.setText(student.getFirstName());
+        mStudentName.setText(mStudent.getFirstName());
         return v;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudent(Student mStudent) {
+        this.mStudent = mStudent;
     }
 
     interface Listener{

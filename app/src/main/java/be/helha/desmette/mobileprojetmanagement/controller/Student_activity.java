@@ -5,34 +5,36 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.Serializable;
 
 import be.helha.desmette.mobileprojetmanagement.R;
-import be.helha.desmette.mobileprojetmanagement.model.Project;
 import be.helha.desmette.mobileprojetmanagement.model.Student;
 import be.helha.desmette.mobileprojetmanagement.model.StudentList;
 
-public class Student_activity extends AppCompatActivity implements StudentFragment.Listener,AddStudentList.Listener {
+public class Student_activity extends AppCompatActivity implements Student_fragment.Listener, Add_student_dialog.Listener {
 
     private static final int STUDENTDATA = 60;
 
-    Button addStudent;
+    Button mAddStudent;
     LinearLayout mContainer;
-    StudentList studentList;
+    StudentList mStudentList;
+    TextView mTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        studentList = StudentList.get(getApplicationContext());
+        mStudentList = StudentList.get(getApplicationContext());
         mContainer = findViewById(R.id.container_scrollview);
-        addStudent = findViewById(R.id.add_object_button);
-        addStudent.setOnClickListener(new View.OnClickListener() {
+        mAddStudent = findViewById(R.id.add_object_button);
+        mTitle = findViewById(R.id.title_textView);
+        mTitle.setText("Liste des Etudiants");
+        mAddStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDialogAddStudent();
@@ -44,21 +46,21 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
 
     void updateUI(){
         mContainer.removeAllViews();
-        for (Student student : studentList.getStudents()) {
+        for (Student student : mStudentList.getStudents()) {
             addFragmentOnUpdate(student);
         }
     }
 
     void openDialogAddStudent(){
-        AddStudentList addStudentList = new AddStudentList();
-        addStudentList.setListener(this);
-        addStudentList.show(getSupportFragmentManager(),"name");
+        Add_student_dialog addStudentdialog = new Add_student_dialog();
+        addStudentdialog.setmListener(this);
+        addStudentdialog.show(getSupportFragmentManager(),"name");
     }
 
     private void addFragmentOnUpdate(Student student) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        StudentFragment studentFragment = (StudentFragment) fragmentManager.findFragmentById(R.id.container_scrollview);
-        studentFragment = new StudentFragment();
+        Student_fragment studentFragment = (Student_fragment) fragmentManager.findFragmentById(R.id.container_scrollview);
+        studentFragment = new Student_fragment();
         studentFragment.setStudent(student);
         studentFragment.setListener(this);
         fragmentManager.beginTransaction().add(R.id.container_scrollview,studentFragment).commit();
@@ -83,7 +85,7 @@ public class Student_activity extends AppCompatActivity implements StudentFragme
     public void getListStudentAdd(String string) {
         String[] studentNameList = string.split("\n");
         for (String name: studentNameList) {
-            studentList.addStudent(new Student(name));
+            mStudentList.addStudent(new Student(name));
         }
         updateUI();
 

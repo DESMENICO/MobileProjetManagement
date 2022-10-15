@@ -16,21 +16,21 @@ import be.helha.desmette.mobileprojetmanagement.R;
 import be.helha.desmette.mobileprojetmanagement.model.Project;
 import be.helha.desmette.mobileprojetmanagement.model.StudentList;
 
-public class ProjectFragment extends Fragment implements Serializable {
+public class Project_fragment extends Fragment implements Serializable {
 
     public static String ProjetID = "ProjetID";
     TableRow mTableRow;
     TextView mProjectName,mProjectCotation;
-    StudentList studentList;
-    Project project;
-    Listener listener;
+    StudentList mStudentList;
+    Project mProject;
+    Listener mListener;
 
-    public void setListener(Listener listener) {
-        this.listener = listener;
+    public void setListener(Listener mListener) {
+        this.mListener = mListener;
     }
 
-    public void setProject(Project project){
-        this.project = project;
+    public void setProject(Project mProject){
+        this.mProject = mProject;
     }
 
 
@@ -41,15 +41,15 @@ public class ProjectFragment extends Fragment implements Serializable {
         mTableRow = v.findViewById(R.id.project_tableRow_OnClick);
         mProjectCotation = v.findViewById(R.id.project_cotation_textview);
         mProjectName = v.findViewById(R.id.project_name_textView);
-        studentList = StudentList.get(getContext());
-        if (project != null){
-            mProjectName.setText(project.getName());
-            mProjectCotation.setText(studentList.getAverageProject(project.getId()));
+        mStudentList = StudentList.get(getContext());
+        if (mProject != null){
+            mProjectName.setText(mProject.getName());
+            mProjectCotation.setText(mStudentList.getAverageProject(mProject.getID()));
         }
         mTableRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onClickOnFragment(project);
+                mListener.onClickOnFragment(mProject);
             }
         });
         return v;

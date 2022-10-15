@@ -13,19 +13,20 @@ import java.io.Serializable;
 
 import be.helha.desmette.mobileprojetmanagement.R;
 
-public class NameDialog extends AppCompatDialogFragment implements Serializable {
+public class StepProject_Dialog extends AppCompatDialogFragment implements Serializable {
 
-    EditText mProjectNameEditText,mProjectDescriptionEditText;
-    Interface mInterface;
+    private EditText mStep_name;
+    Listener mListener;
 
-    public void setInterface(Interface mInterfae){
-        this.mInterface = mInterfae;
+    public void setListener(Listener mListener) {
+        this.mListener = mListener;
     }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.name_dialog,null);
+        View view = inflater.inflate(R.layout.step_dialog,null);
         builder.setView(view)
                 .setTitle("Ajout d'une cotation :")
                 .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
@@ -37,16 +38,14 @@ public class NameDialog extends AppCompatDialogFragment implements Serializable 
                 .setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        mInterface.getNewNameAndDescription(mProjectNameEditText.getText().toString(),mProjectDescriptionEditText.getText().toString());
+                        mListener.getStepName(mStep_name.getText().toString());
                     }
                 });
-        mProjectNameEditText = view.findViewById(R.id.project_name_editText);
-        mProjectDescriptionEditText = view.findViewById(R.id.project_description_editText);
-        return builder.create();
+        mStep_name = view.findViewById(R.id.step_name_editText);
+       return builder.create();
     }
 
-
-    interface Interface{
-        void getNewNameAndDescription(String name, String description);
+    interface Listener {
+        void getStepName(String stepName);
     }
 }

@@ -17,9 +17,9 @@ import java.io.Serializable;
 import be.helha.desmette.mobileprojetmanagement.R;
 import be.helha.desmette.mobileprojetmanagement.model.StepProject;
 
-public class CotationFragment extends Fragment implements Serializable {
+public class Cotation_step_project_fragment extends Fragment implements Serializable {
 
-    StepProject stepProject;
+    StepProject mStepProject;
     Spinner mCotationSpinner;
     TextView mStepName;
     String mName = "Test";
@@ -33,7 +33,7 @@ public class CotationFragment extends Fragment implements Serializable {
     }
 
     public void setProject(StepProject StepProject) {
-        this.stepProject = StepProject;
+        this.mStepProject = StepProject;
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public class CotationFragment extends Fragment implements Serializable {
         View v = inflater.inflate(R.layout.cotation_fragment,container,false);
         mCotationSpinner = v.findViewById(R.id.cotation_spinner);
         mStepName = v.findViewById(R.id.cotation_text);
-        mStepName.setText(stepProject.getStepName());
+        mStepName.setText(mStepProject.getStepName());
         mCotationSpinner.setSelection(mCurrentCotation);
 
         initializeSpinner();
@@ -58,8 +58,8 @@ public class CotationFragment extends Fragment implements Serializable {
         mCotationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                stepProject.setCotation(Integer.parseInt(mCotationSpinner.getSelectedItem().toString()));
-                mInterface.setCotation(stepProject);
+                mStepProject.setCotation(Integer.parseInt(mCotationSpinner.getSelectedItem().toString()));
+                mInterface.setCotation(mStepProject);
             }
 
             @Override
@@ -67,7 +67,7 @@ public class CotationFragment extends Fragment implements Serializable {
                 //
             }
         });
-        mCotationSpinner.setSelection(stepProject.getmCotation());
+        mCotationSpinner.setSelection(mStepProject.getCotation());
 
     }
 

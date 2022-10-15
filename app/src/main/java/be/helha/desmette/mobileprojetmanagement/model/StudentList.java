@@ -20,9 +20,6 @@ public class StudentList implements Serializable {
     private SQLiteDatabase mDatabase;
     private static StudentList sStudentList;
 
-    List<Student> studentList = new ArrayList<Student>();
-
-
     public static StudentList get(Context context) {
         if(sStudentList == null) {
             sStudentList = new StudentList(context);
@@ -43,12 +40,6 @@ public class StudentList implements Serializable {
         mDatabase.insert(DbSchema.StudentTable.NAME, null, getContentValuesStudent(student));
     }
 
-    public void updateStudent(Student student){
-        String uuidString = student.getId().toString();
-        ContentValues values = getContentValuesStudent(student);
-
-        mDatabase.update(DbSchema.StudentTable.NAME,values,DbSchema.StudentTable.cols.UUID + " = ?",new String[]{uuidString});
-    }
 
     public Student getStudent(UUID uuid){
         StudentCursorWrapper cursor = queryStudent(DbSchema.StudentTable.cols.UUID + " = ?",new String[]{uuid.toString()});
@@ -137,7 +128,7 @@ public class StudentList implements Serializable {
         List<StepProject> steps = getStepsOfProject(uuid);
         float sum = 0;
         for (StepProject step: steps) {
-            sum += step.getmCotation();
+            sum += step.getCotation();
         }
         if(sum == 0){
             return "/";
@@ -150,7 +141,7 @@ public class StudentList implements Serializable {
         ContentValues values = new ContentValues();
         values.put(DbSchema.ProjectTable.cols.Name,project.getName());
         values.put(DbSchema.ProjectTable.cols.Description,project.getDescription());
-        values.put(DbSchema.ProjectTable.cols.UUID,project.getId().toString());
+        values.put(DbSchema.ProjectTable.cols.UUID,project.getID().toString());
         values.put(DbSchema.ProjectTable.cols.Average,project.getAverage());
         values.put(DbSchema.ProjectTable.cols.OwnerID,student.getId().toString());
         return values;
@@ -162,7 +153,7 @@ public class StudentList implements Serializable {
     }
 
     public void updateProject(Project project, Student student){
-        String uuidString = project.getId().toString();
+        String uuidString = project.getID().toString();
         ContentValues values = getContentValuesProject(project,student);
         mDatabase.update(DbSchema.ProjectTable.NAME,values,DbSchema.ProjectTable.cols.UUID + " = ?",new String[]{uuidString});
 
@@ -195,9 +186,9 @@ public class StudentList implements Serializable {
     public ContentValues getContentValuesStep(StepProject step,Project project){
         ContentValues values = new ContentValues();
         values.put(DbSchema.StepTable.cols.Name,step.getStepName());
-        values.put(DbSchema.StepTable.cols.Cotation,step.getmCotation());
+        values.put(DbSchema.StepTable.cols.Cotation,step.getCotation());
         values.put(DbSchema.StepTable.cols.UUID,step.getId().toString());
-        values.put(DbSchema.StepTable.cols.ProjectID,project.getId().toString());
+        values.put(DbSchema.StepTable.cols.ProjectID,project.getID().toString());
         return values;
     }
 
@@ -211,23 +202,5 @@ public class StudentList implements Serializable {
     private StepCursorWrapper queryStep(String whereClause,String[]whereArgs){
         return new StepCursorWrapper(mDatabase.query(DbSchema.StepTable.NAME,null,whereClause,whereArgs,null,null,null));
     }
-
-
-
-
-
-    public void removeStudentByID(UUID id){
-        Student studentToRemove = null;
-        for (Student student: studentList) {
-            if(student.getId().equals(id)){
-                studentToRemove = student;
-            }
-        }
-        studentList.remove(studentToRemove);
-    }
-
-
-
-
 
 }

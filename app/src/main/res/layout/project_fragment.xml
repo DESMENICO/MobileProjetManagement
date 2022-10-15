@@ -7,7 +7,9 @@
         android:id="@+id/project_tableRow_OnClick"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@drawable/rounded_bg"
         >
+
 
         <TextView
             android:layout_column="0"

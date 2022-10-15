@@ -4,13 +4,15 @@
     android:id="@+id/bg_student_name_fragment"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:padding="8dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_bg"
+    >
 
     <TextView
         android:id="@+id/student_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="25dp"
-        android:text="@string/fragment_student_name" />
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_student_name"
+        android:textAlignment="center"
+        android:textSize="25dp" />
 </LinearLayout>

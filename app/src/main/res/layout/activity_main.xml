@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background">
+    <TextView
+        android:background="@drawable/title_shape"
+        android:id="@+id/title_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:textAlignment="center"></TextView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
         </LinearLayout>
 
@@ -29,7 +38,9 @@
             android:layout_width="51dp"
             android:layout_height="53dp"
             android:text="+"
-            android:textSize="25dp"
+            android:textSize="35dp"
+            android:textAlignment="center"
+            android:background="@drawable/button_shape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"></Button>
     </android.support.constraint.ConstraintLayout>

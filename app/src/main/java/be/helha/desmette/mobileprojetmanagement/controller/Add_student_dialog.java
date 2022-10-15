@@ -11,12 +11,12 @@ import android.widget.EditText;
 
 import be.helha.desmette.mobileprojetmanagement.R;
 
-public class AddStudentList extends AppCompatDialogFragment {
+public class Add_student_dialog extends AppCompatDialogFragment {
     private EditText mStudentList;
-    private Listener listener;
+    private Listener mListener;
 
-    public void setListener(Listener listener) {
-        this.listener = listener;
+    public void setmListener(Listener mListener) {
+        this.mListener = mListener;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class AddStudentList extends AppCompatDialogFragment {
                 .setPositiveButton("Confirmer", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        listener.getListStudentAdd(mStudentList.getText().toString());
+                        mListener.getListStudentAdd(mStudentList.getText().toString());
                     }
                 });
         mStudentList = view.findViewById(R.id.add_student_list);
