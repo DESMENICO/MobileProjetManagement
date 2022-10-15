@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.177" />
         <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable/button_shape.xml" value="0.224" />
+        <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable/ic_launcher_background.xml" value="0.177" />
+        <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable/icone_background.xml" value="0.177" />
         <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable/layer_list.xml" value="0.67" />
         <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable/rounded_bg.xml" value="0.362" />
         <entry key="..\:/MobileProjetManagement/app/src/main/res/drawable/rounded_edge.xml" value="0.3465" />
@@ -19,6 +22,7 @@
         <entry key="..\:/MobileProjetManagement/app/src/main/res/layout/score_fragment.xml" value="0.2" />
         <entry key="..\:/MobileProjetManagement/app/src/main/res/layout/step_dialog.xml" value="0.25" />
         <entry key="..\:/MobileProjetManagement/app/src/main/res/layout/student_name_fragment.xml" value="0.365625" />
+        <entry key="..\:/MobileProjetManagement/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
       </map>
     </option>
   </component>
