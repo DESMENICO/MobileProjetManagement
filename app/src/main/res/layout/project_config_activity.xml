@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:stretchColumns="*">
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -14,7 +15,7 @@
 
         <TextView
             android:id="@+id/projet_name_in_configuration"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_column="0"
             android:text="@string/project_name"
@@ -23,7 +24,7 @@
 
         <Button
             android:id="@+id/projet_name_modify"
-            android:layout_width="146dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_column="1"
             android:background="@drawable/button_shape"
@@ -55,14 +56,14 @@
     </TableRow>
 
     <TableRow
-        android:background="@color/background_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/background_title">
 
         <TextView
             android:id="@+id/step_text_label"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="match_parent"
             android:layout_column="0"
             android:paddingRight="10dp"
             android:text="@string/Step_Menu"
@@ -78,12 +79,12 @@
             android:background="@drawable/button_shape"
             android:text="@string/add_button_text" />
     </TableRow>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="4"
-        android:background="@color/background"
-        >
+        android:background="@color/background">
 
         <ScrollView
             android:layout_width="351dp"
@@ -103,24 +104,23 @@
             </LinearLayout>
         </ScrollView>
     </TableRow>
+
     <TableRow
-        android:background="@color/background_title"
-        android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        >
+        android:layout_gravity="bottom"
+        android:background="@color/background_title">
 
         <TextView
             android:layout_column="0"
             android:text="@string/Total_Title"
-            android:textSize="25dp">
-        </TextView>
+            android:textSize="25dp"></TextView>
+
         <TextView
             android:id="@+id/average_textView"
             android:layout_column="1"
-            android:text="/20"
-            android:textSize="25dp"
             android:paddingRight="15dp"
-            android:textAlignment="textEnd">
-        </TextView>
+            android:text="/20"
+            android:textAlignment="textEnd"
+            android:textSize="25dp"></TextView>
     </TableRow>
 </TableLayout>

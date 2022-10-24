@@ -33,7 +33,7 @@ public class Project_activity extends AppCompatActivity implements Serializable 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
         mStudentList = StudentList.get(getApplicationContext());
         mStudentList.getStudents();
         mAddProject = findViewById(R.id.add_object_button);

@@ -28,7 +28,7 @@ public class Student_activity extends AppCompatActivity implements Student_fragm
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
         mStudentList = StudentList.get(getApplicationContext());
         mContainer = findViewById(R.id.container_scrollview);
         mAddStudent = findViewById(R.id.add_object_button);
